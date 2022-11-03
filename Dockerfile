@@ -2,9 +2,11 @@ FROM alpine:latest
 
 ENV BINOCS_VERSION=0.7.3
 
-RUN wget https://download.binocs.sh/binocs_${BINOCS_VERSION}_aarch64.apk \
- && apk add --allow-untrusted binocs_${BINOCS_VERSION}_aarch64.apk \
- && rm binocs_${BINOCS_VERSION}_aarch64.apk
+RUN APK_ARCH="$(cat /etc/apk/arch)" \
+ && BINOCS_URL="binocs_${BINOCS_VERSION}_${APK_ARCH}.apk" \
+ && wget https://download.binocs.sh/${BINOCS_URL} \
+ && apk add --allow-untrusted ${BINOCS_URL} \
+ && rm ${BINOCS_URL}
 
 RUN binocs version \
  && ln -s /root/.binocs /config
