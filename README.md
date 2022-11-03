@@ -4,6 +4,6 @@
 
 ```shell
 docker pull automato/binocs
-docker run -ti --rm -v binocs_config:/config automato/binocs:latest login
-docker run -ti --rm -v binocs_config:/config automato/binocs:latest help
+docker run -ti automato/binocs login
+docker run -ti automato/binocs help
 ```
