@@ -31,4 +31,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64,linux/386
           push: true
-          tags: automato/binocs:latest
+          tags: automato/binocs:latest, automato/binocs:${{ GITHUB_REF_NAME }}
