@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-ENV BINOCS_VERSION=0.7.4
+ENV BINOCS_VERSION=0.7.5
 
 RUN APK_ARCH="$(cat /etc/apk/arch)" \
  && BINOCS_URL="binocs_${BINOCS_VERSION}_${APK_ARCH}.apk" \
